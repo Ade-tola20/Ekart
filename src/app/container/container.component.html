@@ -1,0 +1,63 @@
+<div class="my-[20px] mx-auto py-0 px-[12vh]">
+  <!--<img [src]="product.pImage" />
+  <p>Name: {{ product.name }}</p>
+  <p>Price: {{ "$" + product.price }}</p>
+  <p>Color: {{ product.color }}</p>
+  <p>Discounted Price: {{ getDiscountedPrice().toFixed(2) }}</p>
+  <p>
+    {{
+      product.inStock > 0
+        ? "Only " + product.inStock + " items left"
+        : "Not in stock"
+    }}
+  </p>
+  <button (click)="decrementCartValue()" class="bg-[#28282B] py-[5px] px-[10px] my-[0px] mx-[5px]">-</button>
+  <span>{{ addToCart }}</span>
+  <button (click)="incrementCartValue()" class="bg-[#28282B] py-[5px] px-[10px] my-[0px] mx-[5px]">+</button>
+   <input (input)="onNameChange($event)" /><br />
+  <p>Name: {{ name }}</p> -->
+  <app-search (searchTextChanged)="setSearchText($event)"></app-search>
+  <!-- <div *ngFor= "let item of listOfString">
+    <p>Current element of array is: {{item}}</p>
+  </div> -->
+  <div class="flex justify-center items-center ml-[10px]">
+    <product-list
+      [searchText]="searchText"
+      #productListComponent
+    ></product-list>
+    <product-detail
+      *ngIf="productListComponent.selectedProduct"
+      [productListComp]="productListComponent"
+    ></product-detail>
+  </div>
+  <div class="bg-[#28282b] py-[20px] px-[10px] flex">
+    <div class="w-[320px] m-[10px] py-[20px] px-[30px] text-[#fff]">
+      <h1>Latest Arrival in Popular Brands</h1>
+    </div>
+
+    <featured-brands>
+      <h3 class="my-[10px] mx-0 text-[16px] font-bold title">New Arrivals in Nike</h3>
+      <button
+        class="my-[10px] mx-0 bg-[#28282b] text-[#fff] w-full py-[10px] px-0 call-to-action"
+      >
+        Show New Arrivals In Nike
+      </button>
+    </featured-brands>
+    <featured-brands>
+      <h3 class="my-[10px] mx-0 text-[16px] font-bold title">New Arrivals in Adidas</h3>
+      <button
+        class="my-[10px] mx-0 bg-[#28282b] text-[#fff] w-full py-[10px] px-0 call-to-action"
+      >
+        Show New Arrivals In Adidas
+      </button>
+    </featured-brands>
+    <featured-brands>
+      <h3 class="my-[10px] mx-0 text-[16px] font-bold title">New Arrivals in Reebok</h3>
+      <button
+        class="my-[10px] mx-0 bg-[#28282b] text-[#fff] w-full py-[10px] px-0 call-to-action"
+      >
+        Show New Arrivals In Reebok
+      </button>
+    </featured-brands>
+  </div>
+</div>

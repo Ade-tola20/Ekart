@@ -1,0 +1,40 @@
+<div
+  class="w-[290px] bg-[#fdfefe] m-[10px] pt-[10px] pb-[20px] px-[10px] border-[2px] border-[#efefef] border-solid ekart--product--item"
+>
+  <div class="inline-block w-[270px] absolute py-[5px] px-0">
+    <div class="py-[2px] px-[10px] text-[right] text-[22px] absolute">
+      <i class="fa-regular fa-heart" aria-hidden="true"></i>
+    </div>
+    <div
+      class="float-right text-[14px] mt-[10px] mr-[-10px] py-[5px] px-[10px] bg-[#ffc000] text-[#28282b] font-bold"
+      *ngIf="product.discountPrice"
+    >
+      {{ (100 - (product.discountPrice / product.price) * 100).toFixed(0) }}%
+      OFF
+    </div>
+  </div>
+  <div class="w-[265px] h-[250px]">
+    <img [src]="product.imageURL" class="ekart--product--image" alt="" />
+  </div>
+  <div class="py-[1px] px-[5px] absolute mt-[-25px] bg-[#28282b] text-[#fff]">
+    ${{ product.price }}
+  </div>
+  <div class="text-[14px] text-[#28282b] mt-[7px]">{{ product.name }}</div>
+  <div class="text-[12px] text-[#999] mt-[7px]">
+    {{ product.gender }} . {{ product.category }} . {{ product.brand }}
+  </div>
+  <div class="text-[12px] text-[#999] mt-[7px]">
+    {{ product.color.length }} Colors . Best Seller
+  </div>
+  <div
+    class="text-[12px] text-[#999] mt-[7px]"
+    [ngStyle]="{
+      fontWeight: 'bold',
+      color: product.is_in_inventory ? 'Green' : 'Red'
+    }"
+  >
+    {{
+      product.is_in_inventory ? "Available in stock" : "Not available in stock"
+    }}
+  </div>
+</div>

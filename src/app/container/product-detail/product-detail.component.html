@@ -1,0 +1,104 @@
+<div
+  class="absolute z-10 bg-[#fff] duration-1000 w-[480px] top-0 right-0 bottom-0 py-[10px] px-[5px] scroll"
+>
+  <div
+    class="text-right text-[#28282b] text-[20px] font-extralight py-[5px] px-0"
+  >
+    <i class="fa fa-times" aria-hidden="true"></i>
+  </div>
+  <div class="w-full h-320px">
+    <img [src]="product.imageURL" class="ekart-product-detail-image" />
+  </div>
+
+  <div class="py-[10px] px-0">
+    <div class="my-[20px] mx-auto">
+      <h2>{{ product.name }}</h2>
+    </div>
+    <div class="my-[20px] mx-0">
+      <span
+        class="bg-[#36454f] ml-0 py-[5px] px-[20px] text-[14px] text-[#fff]"
+        >{{ product.gender }}</span
+      >
+      <span
+        class="bg-[#36454f] ml-0 py-[5px] px-[20px] text-[14px] text-[#fff]"
+        >{{ product.brand }}</span
+      >
+      <span
+        class="bg-[#36454f] ml-0 py-[5px] px-[20px] text-[14px] text-[#fff]"
+        >{{ product.category }}</span
+      >
+    </div>
+    <div
+      class="text-[14px] my-[30px] mx-0 py-[25px] px-[10px] bg-[#fcf55f] border-[#ffc000] border-2 border-solid"
+    >
+      <p>
+        <b>Price Each Pair:</b>
+        <span
+          style="background-color: red; color: white"
+          *ngIf="product.discountPrice"
+          ><s
+            >${{
+              (100 - (product.discountPrice / product.price) * 100).toFixed(0)
+            }}%</s
+          ></span
+        >
+        <span style="background-color: green; color: white"
+          >${{ product.price }}</span
+        >
+        (Inclusive of all taxes)
+      </p>
+    </div>
+    <div class="my-[30px] mx-0">
+      <div style="padding: 5px 0px; border-bottom: #ccc 2px solid">
+        <h4>Available Size</h4>
+      </div>
+      <diV style="margin-top: 20px">
+        <span
+          class="m-0 bg-[#28282b] text-[#fff] rounded-0 py-[10px] px-[15px] text-[16px]"
+          *ngFor="let size of product.size"
+          >{{ size }}</span
+        >
+      </diV>
+    </div>
+
+    <div>
+      <div style="padding: 5px 0px; border-bottom: #ccc 2px solid">
+        <h4>Available Color</h4>
+      </div>
+      <diV style="margin-top: 20px">
+        <span
+          class="inline-block w-[20px] h-[20px] rounded-full m-[5px] py-[10px] px-[15px]"
+          [ngStyle]="{ 'background-color': color }"
+          *ngFor="let color of product.color"
+        ></span>
+      </diV>
+    </div>
+
+    <div class="mt-[30px] text-[14px]">
+      <div style="padding: 5px 0px; border-bottom: #ccc 2px solid">
+        <h4>Product Description</h4>
+      </div>
+      <div style="margin-top: 20px">
+        <p>{{ product.description }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="my-[20px] mx-0">
+    <button
+      class="rounded-none bg-[#28282b] py-[10px] px-[30px] text-[20px] text-[#fff]"
+      *ngIf="product.is_in_inventory; else notifyMe"
+    >
+      ADD TO CART
+    </button>
+    <ng-template #notifyMe>
+      <button
+        class="rounded-none bg-[#28282b] py-[10px] px-[30px] text-[20px] text-[#fff]"
+      >
+        NOTIFY ME
+      </button>
+    </ng-template>
+  </div>
+</div>
+<div
+  class="absolute top-0 left-0 right-0 bottom-0 w-full h-full bg-[#0000004d] z-5 cursor-pointer"
+></div>

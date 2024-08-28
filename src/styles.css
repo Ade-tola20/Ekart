@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* TAILWIND CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MONTSERRAT FONT IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* CONCERT ONE FONT IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+/* FONT AWESOME LINK */
+@import "~@fortawesome/fontawesome-free/css/all.css";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    padding: 0 10px;
+    color: #28282B;
+}

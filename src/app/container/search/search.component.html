@@ -1,0 +1,13 @@
+<div class="mt-[10px] mx-auto text-center">
+  <input
+    type="text"
+    class="w-[40%] h-[5.7vh] py-[1px] px-[10px] outline-none rounded-sm bg-[#efefef] border-[#28282B] border-[1px] border-solid"
+    #searchInput
+    />
+  <button class="btn btn-search" (click)="updateSearchText()">Search</button>
+</div>
+<div class="pt-[140px] pl-[80px] mt-[-100px] ml-[50px]">
+  <p *ngIf="searchText != ''">
+    <strong>Search results for:</strong> {{ searchText }}
+  </p>
+</div>
